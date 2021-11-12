@@ -9,5 +9,9 @@ export default function Button(props) {
       buttonClass += " button--confirm";
    }
 
+   if (props.danger) {
+      buttonClass += " button--danger";
+   }
+
    return <button className={buttonClass}>{props.children}</button>;
 }
