@@ -9,11 +9,10 @@ export default function InterviewerList(props) {
       {props.interviewers.map(int => {
         return (<InterviewerListItem
           key={int.id}
-          id={int.id}
           name={int.name}
           avatar={int.avatar}
           selected={int.id === props.interviewer}
-          setInterviewer={props.setInterviewer} />);
+          setInterviewer={(event) => props.setInterviewer(int.id)} />);
       })}
     </ul>
   </section>);
