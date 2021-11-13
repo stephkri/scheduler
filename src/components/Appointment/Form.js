@@ -18,7 +18,8 @@ export default function Form(props) {
         />
       </form>
       <InterviewerList 
-        /* your code goes here */
+        interviewer={interviewer}
+        onChange={setInterviewer(props.interviewer)}
       />
     </section>
     <section className="appointment__card-right">
