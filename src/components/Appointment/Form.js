@@ -17,15 +17,16 @@ export default function Form(props) {
           onChange={(event) => setStudent(event.target.value)}
         />
       </form>
-      <InterviewerList 
+      <InterviewerList
+        interviewers={props.interviewers}
         interviewer={interviewer}
-        onChange={setInterviewer(props.interviewer)}
+        onChange={setInterviewer}
       />
     </section>
     <section className="appointment__card-right">
       <section className="appointment__actions">
-        <Button danger /* code goes here */>Cancel</Button>
-        <Button confirm /* code goes here */ >Save</Button>
+        <Button danger>Cancel</Button>
+        <Button confirm>Save</Button>
       </section>
     </section>
   </main>);
