@@ -33,7 +33,6 @@ const interviewers = [
 
 export default function Application(props) {
   const [day, setDay] = useState("Monday");
-  const [interviewer, setInterviewer] = useState("Sylvia Palmer");
   return (
     <main className="layout">
       <section className="sidebar">
