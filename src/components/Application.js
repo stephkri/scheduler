@@ -4,6 +4,7 @@ import "components/Application.scss";
 
 import DayList from "./DayList";
 import Button from "./Button";
+import Appointment from "./Appointment";
 
 const days = [
   {
