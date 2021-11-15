@@ -99,8 +99,7 @@ export default function Application(props) {
         {Object.values(appointments).map(app => {
           return(<Appointment
             key={app.id}
-            time={app.time}
-            interview={app.interview ? app.interview : null}
+            {...app}
             />);
         })}
         <Appointment key="last" time="5pm" />
