@@ -6,26 +6,6 @@ import DayList from "./DayList";
 import Button from "./Button";
 import Appointment from "./Appointment";
 
-/*
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
-*/
-
 const interviewers = [
   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
   { id: 2, name: "Tori Malcolm", avatar: "https://i.imgur.com/Nmx0Qxo.png" },
@@ -81,7 +61,7 @@ export default function Application(props) {
     axios.get('/api/days').then(response => {
       setDays(response.data);
     })
-    .catch(e => console.log(e))
+    .catch(e => console.log(e));
   }, [])
 
   return (
