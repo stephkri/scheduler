@@ -6,6 +6,7 @@ import DayList from "./DayList";
 import Button from "./Button";
 import Appointment from "./Appointment";
 
+/*
 const days = [
   {
     id: 1,
@@ -23,6 +24,7 @@ const days = [
     spots: 0,
   },
 ];
+*/
 
 const interviewers = [
   { id: 1, name: "Sylvia Palmer", avatar: "https://i.imgur.com/LpaY82x.png" },
