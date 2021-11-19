@@ -76,6 +76,17 @@ export default function Application(props) {
     .catch(e => console.log(e));
   }, [])
   */
+
+  Promise.all([
+    axios.get('/api/days'),
+    axios.get('/api/appointments'),
+    axios.get('/api/interviewers')
+  ])
+  .then(all => {
+    console.log(all[0]);
+    console.log(all[1]);
+    console.log(all[2]);
+  })
   return (
     <main className="layout">
       <section className="sidebar">
