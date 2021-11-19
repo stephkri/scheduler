@@ -14,6 +14,7 @@ const interviewers = [
   { id: 5, name: "Sven Jones", avatar: "https://i.imgur.com/twYrpay.jpg" }
 ];
 
+/*
 const appointments = {
   "1": {
     id: 1,
@@ -52,10 +53,15 @@ const appointments = {
     time: "4pm",
   }
 };
+*/
 
 export default function Application(props) {
-  const [day, setDay] = useState("Monday");
-  const [days, setDays] = useState([]);
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    // you may put the line below, but will have to remove/comment hardcoded appointments variable
+    appointments: {}
+  });
 
   useEffect(() => {
     axios.get('/api/days').then(response => {
