@@ -98,7 +98,7 @@ export default function Application(props) {
       />
       </section>
       <section className="schedule">
-        {Object.values(state.appointments).map(app => {
+        {dailyAppointments.map(app => {
           return(<Appointment
             key={app.id}
             {...app}
