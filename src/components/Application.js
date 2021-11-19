@@ -79,14 +79,15 @@ export default function Application(props) {
 
   Promise.all([
     axios.get('/api/days'),
-    axios.get('/api/appointments'),
-    axios.get('/api/interviewers')
+    axios.get('/api/appointments')
   ])
   .then(all => {
     console.log(all[0]);
     console.log(all[1]);
-    console.log(all[2]);
+    setState(prev => ({...prev, days: all[0], appointments: all[1]}))
   })
+  .catch(e => console.log(e));
+  
   return (
     <main className="layout">
       <section className="sidebar">
