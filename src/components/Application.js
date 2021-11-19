@@ -64,7 +64,7 @@ export default function Application(props) {
     appointments: {}
   });
 
-  const dailyAppointments = [];
+  const dailyAppointments = getAppointmentsForDay(state, state.day);
 
   const setDay = day => setState({ ...state, day });
   /*
@@ -83,7 +83,9 @@ export default function Application(props) {
     axios.get('/api/appointments')
   ])
   .then(all => {
-    setState(prev => ({...prev, days: all[0].data, appointments: all[1].data}))
+    const daysData = all[0].data;
+    const apptsData = all[1].data;
+    setState(prev => ({...prev, days: daysData, appointments: apptsData}))
   })
   .catch(e => console.log(e));
 
