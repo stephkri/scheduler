@@ -8,8 +8,10 @@ export default function useVisualMode(initial) {
     setMode(newMode);
   }
   const back = function() {
-    history.pop(mode);
-    setMode(history[history.length - 1]);
+    if (history.length > 1) {
+      history.pop(mode);
+      setMode(history[history.length - 1]);
+    }
   }
   return { mode, transition, back };
 };
