@@ -24,6 +24,7 @@ export default function Application(props) {
   });
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
+  const dailyInterviewers = getInterviewersForDay(state, state.day);
 
   const setDay = day => setState({ ...state, day });
 
@@ -69,6 +70,7 @@ export default function Application(props) {
             id={app.id}
             time={app.time}
             interview={interview}
+            interviewers={dailyInterviewers}
             />);
         })}
         <Appointment key="last" time="5pm" />
