@@ -13,3 +13,7 @@ export function getAppointmentsForDay(state, day) {
   }
   return arr;
 };
+
+export function getInterview(state, interview) {
+
+};
