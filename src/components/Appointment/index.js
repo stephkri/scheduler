@@ -22,5 +22,6 @@ export default function Appointment(props) {
         interviewer={props.interview.interviewer}
       />
     )}
+    {mode === CREATE && <Form interviewers={[]} />}
   </article>);
 };
