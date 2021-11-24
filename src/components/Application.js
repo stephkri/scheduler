@@ -29,7 +29,10 @@ export default function Application(props) {
   const setDay = day => setState({ ...state, day });
 
   const bookInterview = function(id, interview) {
-    console.log(id, interview);
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
   };
 
   Promise.all([
