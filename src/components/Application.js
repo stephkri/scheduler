@@ -28,6 +28,10 @@ export default function Application(props) {
 
   const setDay = day => setState({ ...state, day });
 
+  const bookInterview = function(id, interview) {
+    console.log(id, interview);
+  };
+
   Promise.all([
     axios.get('/api/days'),
     axios.get('/api/appointments'),
