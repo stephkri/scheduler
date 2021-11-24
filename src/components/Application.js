@@ -33,6 +33,10 @@ export default function Application(props) {
       ...state.appointments[id],
       interview: { ...interview }
     };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
   };
 
   Promise.all([
