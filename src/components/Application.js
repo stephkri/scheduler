@@ -31,6 +31,12 @@ export default function Application(props) {
   const bookInterview = function(id, interview) {
     console.log(id, interview);
   };
+  const save = function(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer
+    };
+  };
 
   Promise.all([
     axios.get('/api/days'),
