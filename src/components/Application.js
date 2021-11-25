@@ -42,6 +42,13 @@ export default function Application(props) {
     .catch(e => console.log(e));
   };
 
+  const cancelInterview = function(id) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: null
+    };
+  }
+
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
