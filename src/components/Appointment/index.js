@@ -29,7 +29,7 @@ export default function Appointment(props) {
     .then(transition(SHOW))
     .catch(e => console.log(e))
   };
-  const unsave = function() {
+  const destroy = function() {
     transition(DELETING);
     props.cancelInterview(props.id)
     .then(transition(EMPTY))
@@ -49,7 +49,7 @@ export default function Appointment(props) {
     {mode === CREATE && <Form interviewers={props.interviewers} onCancel={back} onSave={save} />}
     {mode === SAVING && <Status message="Saving..." />}
     {mode === DELETING && <Status message="Deleting..." />}
-    {mode === CONFIRM && <Confirm message="Are you sure you want to cancel this appointment?" onCancel={back} onConfirm={unsave} />}
+    {mode === CONFIRM && <Confirm message="Are you sure you want to cancel this appointment?" onCancel={back} onConfirm={destroy} />}
     {mode === EDIT && <Form interviewers={props.interviewers} student={props.interview.student} onCancel={back} onSave={save} />}
   </article>);
 };
