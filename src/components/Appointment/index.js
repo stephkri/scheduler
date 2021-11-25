@@ -27,7 +27,10 @@ export default function Appointment(props) {
     .catch(e => console.log(e))
   };
   const unsave = function() {
-    
+    transition(DELETING);
+    props.cancelInterview(props.id)
+    .then(transition(EMPTY))
+    .catch(e => console.log(e));
   };
   return (<article className="appointment">
     <Header time={props.time} />
