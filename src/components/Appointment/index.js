@@ -49,5 +49,6 @@ export default function Appointment(props) {
     {mode === SAVING && <Status message="Saving..." />}
     {mode === DELETING && <Status message="Deleting..." />}
     {mode === CONFIRM && <Confirm message="Are you sure you want to cancel this appointment?" onCancel={back} onConfirm={unsave} />}
+    {mode === EDIT && <Form />}
   </article>);
 };
