@@ -17,16 +17,19 @@ const interviewers = [
 ];
 
 export default function Application(props) {
+  /*
   const [state, setState] = useState({
     day: "Monday",
     days: [],
     appointments: {},
     interviewers: {}
   });
+  */
 
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
 
+  /*
   const setDay = day => setState({ ...state, day });
 
   const bookInterview = function(id, interview) {
@@ -66,6 +69,7 @@ export default function Application(props) {
     })
     .catch(e => console.log(e));
   }, []);
+  */
 
   return (
     <main className="layout">
