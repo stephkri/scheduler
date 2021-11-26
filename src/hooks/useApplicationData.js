@@ -24,7 +24,7 @@ export default function useApplicationData() {
   }, []);
 
   const getDayIndexForAppointment = function(days, id) {
-    for (const day in days) {
+    for (const day of days) {
       if (day.appointments.indexOf(id) !== -1) {
         return day.id - 1;
       }
@@ -43,7 +43,10 @@ export default function useApplicationData() {
     };
     return axios.put(`/api/appointments/${id}`, appointment)
     .then(() => {
-      setState({ ...state, appointments });
+      setState(prev => {
+        prev.days[dayId].spots -= 1;
+        return { ...prev, appointments };
+      });
     });
   };
 
