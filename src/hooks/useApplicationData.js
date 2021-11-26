@@ -48,4 +48,6 @@ export default function useApplicationData() {
     return axios.delete(`/api/appointments/${id}`)
     .then(() => setState({ ...state, appointments }));
   };
+
+  return { state, setDay, bookInterview, cancelInterview };
 };
