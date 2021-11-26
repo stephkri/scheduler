@@ -51,6 +51,7 @@ export default function useApplicationData() {
   };
 
   const cancelInterview = function(id) {
+    const dayId = getDayIndexForAppointment(state.days, id);
     const appointment = {
       ...state.appointments[id],
       interview: null
@@ -60,7 +61,12 @@ export default function useApplicationData() {
       [id]: appointment
     };
     return axios.delete(`/api/appointments/${id}`)
-    .then(() => setState({ ...state, appointments }));
+    .then(() => {
+      setState(prev => {
+        prev.days[dayId].spots += 1;
+        return { ...prev, appointments };
+      });
+    });
   };
 
   return { state, setDay, bookInterview, cancelInterview };
