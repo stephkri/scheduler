@@ -23,7 +23,16 @@ export default function useApplicationData() {
     .catch(e => console.log(e));
   }, []);
 
+  const getDayIndexForAppointment = function(days, id) {
+    for (const day in days) {
+      if (day.appointments.indexOf(id) !== -1) {
+        return day.id - 1;
+      }
+    }
+  };
+
   const bookInterview = function(id, interview) {
+    const dayId = getDayIndexForAppointment(state.days, id);
     const appointment = {
       ...state.appointments[id],
       interview: { ...interview }
@@ -33,7 +42,9 @@ export default function useApplicationData() {
       [id]: appointment
     };
     return axios.put(`/api/appointments/${id}`, appointment)
-    .then(() => setState({ ...state, appointments }));
+    .then(() => {
+      setState({ ...state, appointments });
+    });
   };
 
   const cancelInterview = function(id) {
