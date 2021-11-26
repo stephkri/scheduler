@@ -41,7 +41,7 @@ export default function Appointment(props) {
     .then(transition(EMPTY))
     .catch(e => {
       console.log(e);
-      transition(ERROR_SAVE);
+      transition(ERROR_DELETE);
     });
   };
   return (<article className="appointment">
@@ -60,6 +60,7 @@ export default function Appointment(props) {
     {mode === DELETING && <Status message="Deleting..." />}
     {mode === CONFIRM && <Confirm message="Are you sure you want to cancel this appointment?" onCancel={back} onConfirm={destroy} />}
     {mode === EDIT && <Form interviewers={props.interviewers} student={props.interview.student} onCancel={back} onSave={save} />}
-    {mode === ERROR_SAVE && <Error message="Error" onClose={back} />}
+    {mode === ERROR_SAVE && <Error message="Could not save the appointment." onClose={() => transition(EMPTY)} />}
+    {mode === ERROR_DELETE && <Error message="Could not cancel the appointment." onClose={() => transition(SHOW)} />}
   </article>);
 };
