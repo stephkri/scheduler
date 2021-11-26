@@ -22,4 +22,17 @@ export default function useApplicationData() {
     })
     .catch(e => console.log(e));
   }, []);
+
+  const bookInterview = function(id, interview) {
+    const appointment = {
+      ...state.appointments[id],
+      interview: { ...interview }
+    };
+    const appointments = {
+      ...state.appointments,
+      [id]: appointment
+    };
+    return axios.put(`/api/appointments/${id}`, appointment)
+    .then(() => setState({ ...state, appointments }));
+  };
 };
