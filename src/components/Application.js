@@ -17,6 +17,13 @@ const interviewers = [
 ];
 
 export default function Application(props) {
+
+  const {
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview
+  } = useApplicationData();
   /*
   const [state, setState] = useState({
     day: "Monday",
