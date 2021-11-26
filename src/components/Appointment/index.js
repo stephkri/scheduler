@@ -32,16 +32,16 @@ export default function Appointment(props) {
     .then(transition(SHOW))
     .catch(e => {
       console.log(e);
-      transition(ERROR_SAVE);
+      transition(ERROR_SAVE, true);
     })
   };
   const destroy = function() {
-    transition(DELETING);
+    transition(DELETING, true);
     props.cancelInterview(props.id)
     .then(transition(EMPTY))
     .catch(e => {
       console.log(e);
-      transition(ERROR_DELETE);
+      transition(ERROR_DELETE, true);
     });
   };
   return (<article className="appointment">
