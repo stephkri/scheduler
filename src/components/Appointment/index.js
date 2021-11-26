@@ -5,7 +5,8 @@ import Show from "./Show";
 import Empty from "./Empty";
 import Form from "./Form";
 import Status from "./Status";
-import Confirm from "./Confirm"
+import Confirm from "./Confirm";
+import Error from "./Error";
 import useVisualMode from "hooks/useVisualMode";
 
 export default function Appointment(props) {
@@ -28,13 +29,19 @@ export default function Appointment(props) {
     transition(SAVING);
     props.bookInterview(props.id, interview)
     .then(transition(SHOW))
-    .catch(e => console.log(e))
+    .catch(e => {
+      console.log(e);
+      transition(ERROR);
+    })
   };
   const destroy = function() {
     transition(DELETING);
     props.cancelInterview(props.id)
     .then(transition(EMPTY))
-    .catch(e => console.log(e));
+    .catch(e => {
+      console.log(e);
+      transition(ERROR);
+    });
   };
   return (<article className="appointment">
     <Header time={props.time} />
@@ -52,5 +59,6 @@ export default function Appointment(props) {
     {mode === DELETING && <Status message="Deleting..." />}
     {mode === CONFIRM && <Confirm message="Are you sure you want to cancel this appointment?" onCancel={back} onConfirm={destroy} />}
     {mode === EDIT && <Form interviewers={props.interviewers} student={props.interview.student} onCancel={back} onSave={save} />}
+    {mode === ERROR && <Error message="Error" onClose={back} />}
   </article>);
 };
