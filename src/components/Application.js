@@ -24,6 +24,8 @@ export default function Application(props) {
     cancelInterview
   } = useApplicationData();
 
+  // These functions are used to narrow down the list of appointments and available interviewers
+  // to whichever day is selected in the app.
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const dailyInterviewers = getInterviewersForDay(state, state.day);
 
