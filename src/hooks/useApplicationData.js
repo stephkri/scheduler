@@ -69,7 +69,7 @@ export default function useApplicationData() {
 
   /*
   This function is called whenever an appointment is flat-out cancelled. Since the only thing that
-  has to happen is that the "interview" property of the respective appointment slot be set to null,
+  has to happen on the back end is that the "interview" property of the respective appointment slot be set to null,
   it is virtually indentical to the bookInterview function, except the number of spots is
   increased by 1 instead of decreased and the interview is set to null.
   */
