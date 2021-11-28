@@ -10,6 +10,10 @@ import Error from "./Error";
 import useVisualMode from "hooks/useVisualMode";
 
 export default function Appointment(props) {
+  /*
+  These strings are used to indicate the current mode (state) of the component, as well as
+  populate the history array (explained in useVisualMode).
+  */
   const EMPTY = "EMPTY";
   const SHOW = "SHOW";
   const CREATE = "CREATE";
@@ -19,9 +23,13 @@ export default function Appointment(props) {
   const EDIT = "EDIT";
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
+
   const { mode, transition, back } = useVisualMode(
+    // This argument is the initial visual mode of the component, and it depends on whether
+    // an interview is defined in the appointment slot.
     props.interview ? SHOW : EMPTY
   );
+
   const save = function(name, interviewer) {
     const interview = {
       student: name,
