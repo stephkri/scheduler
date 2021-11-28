@@ -30,6 +30,8 @@ export default function useApplicationData() {
     .catch(e => console.log(e));
   }, []);
 
+  // This is a helper function for the other two functions below; it only serves to find the proper
+  // day in which a particular appointment slot is located.
   const getDayIndexForAppointment = function(days, id) {
     for (const day of days) {
       if (day.appointments.indexOf(id) !== -1) {
@@ -38,6 +40,14 @@ export default function useApplicationData() {
     }
   };
 
+  /*
+  This function is called whenever a new interview is booked or modified. It works on three levels:
+  1. the individual appointment object is made, with the new student and interviewer info,
+  2. a new object of total appointments is created, essentially cloning the old appointments object plus the new appointment info, and
+  3. the state is set in an axios put request with the new data.
+  The number of spots remaining in each day is also updated here, so that the number will be reflected
+  without the user having to refresh the page.
+  */
   const bookInterview = function(id, interview) {
     const dayId = getDayIndexForAppointment(state.days, id);
     const appointment = {
