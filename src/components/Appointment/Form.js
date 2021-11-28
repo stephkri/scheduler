@@ -38,7 +38,7 @@ export default function Form(props) {
       <section className="appointment__actions">
         <Button danger onClick={cancel}>Cancel</Button>
         {/* props.onSave calls the bookInterview function from useApplicationData */}
-        <Button confirm onClick={() => props.onSave(student, interviewer)}>Save</Button>
+        <Button confirm onClick={() => props.onSave(student, interviewer, props.edit)}>Save</Button>
       </section>
     </section>
   </main>);
