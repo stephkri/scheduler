@@ -30,6 +30,11 @@ export default function Appointment(props) {
     props.interview ? SHOW : EMPTY
   );
 
+  /*
+  These two functions call the axios request functions (defined in useApplicationData) and
+  coordinate their implication with the visual modes in the component. "save" is for booking
+  or modifying an interview, and "destroy" is for cancelling one.
+  */
   const save = function(name, interviewer) {
     const interview = {
       student: name,
