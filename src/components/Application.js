@@ -18,6 +18,11 @@ const interviewers = [
 
 export default function Application(props) {
 
+  /*
+  useApplicationData can be found in the src/hooks folder. Without needing any parameters, it
+  makes requests to the API server using axios and fetches all necessary data, as well as
+  a few functions which use or rely on said data. More information can be found in the file itself.
+  */
   const {
     state,
     setDay,
