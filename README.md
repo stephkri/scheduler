@@ -37,3 +37,4 @@ In another terminal, go into this repository and run `npm start`. The applicatio
 !["Confirm message, asking if you're sure you want to delete this"](https://github.com/stephkri/scheduler/blob/master/screenshots/05confirm.png)
 !["Successfully deleted the appointment"](https://github.com/stephkri/scheduler/blob/master/screenshots/06deleted.png)
 !["Showing other appointments in a different day"](https://github.com/stephkri/scheduler/blob/master/screenshots/07diffday.png)
+!["Creating a new appointment"](https://github.com/stephkri/scheduler/blob/master/screenshots/08create.png)
