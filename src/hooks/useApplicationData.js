@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 export default function useApplicationData() {
+  // This is the default empty state, before values are fetched from the API.
   const [state, setState] = useState({
     day: "Monday",
     days: [],
