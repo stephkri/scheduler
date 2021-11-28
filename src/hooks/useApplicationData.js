@@ -61,7 +61,9 @@ export default function useApplicationData() {
     return axios.put(`/api/appointments/${id}`, appointment)
     .then(() => {
       setState(prev => {
-        prev.days[dayId].spots -= 1;
+        if (!edit) {
+          prev.days[dayId].spots -= 1;
+        }
         return { ...prev, appointments };
       });
     });
