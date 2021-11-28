@@ -20,6 +20,9 @@ export default function useVisualMode(initial) {
 
   setMode is called before setHistory in both transition and back since it can be done without
   relying on what the history array looks like.
+
+  setHistory was used in place of pushing and popping the array, since the state needs to keep up
+  with what these functions are doing.
   */
   const transition = function(newMode, replace = false) {
     setMode(newMode);
@@ -31,6 +34,11 @@ export default function useVisualMode(initial) {
       setHistory(history => [...history, newMode]);
     }
   }
+
+  /*
+  Back operates in much the same way: first set the mode to the previous element in the array,
+  then essentially pop the last element of the array.
+  */
   const back = function() {
     if (history.length > 1) {
       setMode(history[history.length - 2]);
