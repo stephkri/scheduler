@@ -19,20 +19,11 @@ In one terminal, go into the `scheduler-api` repository and run `npm start` to b
 
 In another terminal, go into this repository and run `npm start`. The application should start up by itself.
 
-## Running Webpack Development Server
+## Dependencies
 
-```sh
-npm start
-```
-
-## Running Jest Test Framework
-
-```sh
-npm test
-```
-
-## Running Storybook Visual Testbed
-
-```sh
-npm run storybook
-```
+- Axios 0.24.x or higher
+- Classnames 2.2.6 or higher
+- Normalize.css 8.0.1 or higher
+- React 16.9.x or higher
+- react-dom 16.9.x or higher
+- react-scripts 3.0
