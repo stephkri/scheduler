@@ -54,7 +54,6 @@ export default function Application(props) {
       <section className="schedule">
         {dailyAppointments.map(app => {
           const interview = getInterview(state, app.interview);
-          //console.log(interview);
           return(<Appointment
             key={app.id}
             id={app.id}
