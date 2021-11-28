@@ -10,7 +10,7 @@ import useApplicationData from "hooks/useApplicationData";
 import DayList from "./DayList";
 import Appointment from "./Appointment";
 
-export default function Application(props) {
+export default function Application() {
 
   /*
   useApplicationData can be found in the src/hooks folder. Without needing any parameters, it
