@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a react-based web app designed for saving, editing and cancelling interviews at a particular date and time. In this app, users can:
+This is a React-based web app designed for saving, editing and cancelling interviews at a particular date and time. In this app, users can:
 
 - View a list of current scheduled appointments over a period of five business days
 - Book a new interview with any student name, and an interviewer of their choice
