@@ -32,3 +32,4 @@ In another terminal, go into this repository and run `npm start`. The applicatio
 
 !["Initial appearance of the app"](https://github.com/stephkri/scheduler/blob/master/screenshots/01init.png)
 !["What the user sees when the edit button is clicked"](https://github.com/stephkri/scheduler/blob/master/screenshots/02editinit.png)
+!["New values entered into edit form"](https://github.com/stephkri/scheduler/blob/master/screenshots/03editnew.png)
