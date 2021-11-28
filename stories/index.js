@@ -1,3 +1,9 @@
+/*
+This is where you will find the code for all the Storybook tests that were done during the
+development of this app. To view the results, type "npm run storybook" in the terminal and then
+go to localhost:9009 on your browser.
+*/
+
 import React, { Fragment } from "react";
 
 import { storiesOf } from "@storybook/react";
