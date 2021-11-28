@@ -35,3 +35,4 @@ In another terminal, go into this repository and run `npm start`. The applicatio
 !["New values entered into edit form"](https://github.com/stephkri/scheduler/blob/master/screenshots/03editnew.png)
 !["Successfully edited the appointment"](https://github.com/stephkri/scheduler/blob/master/screenshots/04shownew.png)
 !["Confirm message, asking if you're sure you want to delete this"](https://github.com/stephkri/scheduler/blob/master/screenshots/05confirm.png)
+!["Successfully deleted the appointment"](https://github.com/stephkri/scheduler/blob/master/screenshots/06deleted.png)
