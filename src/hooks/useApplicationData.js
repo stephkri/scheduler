@@ -10,6 +10,8 @@ export default function useApplicationData() {
     interviewers: {}
   });
 
+  // setDay is called whenever a day is clicked in the day list, so the information switches
+  // to that particular day.
   const setDay = day => setState({ ...state, day });
 
   useEffect(() => {
