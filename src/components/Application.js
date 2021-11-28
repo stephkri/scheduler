@@ -1,3 +1,10 @@
+/*
+This is the main application page for the scheduler.
+There have been Jest and Storybook tests made for this. Instructions for Storybook are laid out in
+stories/index.js. Any file that ends in .test.js is done for Jest testing, which you can
+observe by running "npm test" in your terminal.
+*/
+
 import React from "react";
 // CSS for the scheduler
 import "components/Application.scss";
