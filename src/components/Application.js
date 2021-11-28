@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 // CSS for the scheduler
 import "components/Application.scss";
 
@@ -8,7 +7,6 @@ import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "help
 import useApplicationData from "hooks/useApplicationData";
 
 import DayList from "./DayList";
-import Button from "./Button";
 import Appointment from "./Appointment";
 
 export default function Application(props) {
