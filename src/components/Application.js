@@ -6,6 +6,7 @@ import "components/Application.scss";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "helpers/selectors";
 import useApplicationData from "hooks/useApplicationData";
 
+// Import the two top-level components; all others are children of these
 import DayList from "./DayList";
 import Appointment from "./Appointment";
 
