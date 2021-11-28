@@ -57,6 +57,12 @@ export default function Appointment(props) {
       transition(ERROR_DELETE, true);
     });
   };
+
+  /*
+  In this component, the child component displayed depends on the visual mode that is currently
+  in state. The conditional statements are all made with the && operator, such that (for example)
+  a Confirm component will render only when the visual mode is set to CONFIRM.
+  */
   return (<article className="appointment">
     <Header time={props.time} />
     {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
