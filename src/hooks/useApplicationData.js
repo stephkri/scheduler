@@ -45,8 +45,13 @@ export default function useApplicationData() {
   1. the individual appointment object is made, with the new student and interviewer info,
   2. a new object of total appointments is created, essentially cloning the old appointments object plus the new appointment info, and
   3. the state is set in an axios put request with the new data.
+  
   The number of spots remaining in each day is also updated here, so that the number will be reflected
   without the user having to refresh the page.
+
+  This spot reducer is wrapped in a conditional that depends on the value of the parameter "edit".
+  This way, the number of spots in a day will only be decreased if a new appointment is made, and
+  not when it is simply an edit.
   */
   const bookInterview = function(id, interview, edit = false) {
     const dayId = getDayIndexForAppointment(state.days, id);
