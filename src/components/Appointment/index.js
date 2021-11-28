@@ -35,13 +35,13 @@ export default function Appointment(props) {
   coordinate their implication with the visual modes in the component. "save" is for booking
   or modifying an interview, and "destroy" is for cancelling one.
   */
-  const save = function(name, interviewer) {
+  const save = function(name, interviewer, edit = false) {
     const interview = {
       student: name,
       interviewer
     };
     transition(SAVING, true);
-    props.bookInterview(props.id, interview)
+    props.bookInterview(props.id, interview, edit)
     .then(transition(SHOW, true))
     .catch(e => {
       console.log(e);
