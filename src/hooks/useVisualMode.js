@@ -17,11 +17,5 @@ export default function useVisualMode(initial) {
       setHistory(history => [...history.slice(0, history.length - 1)]);
     }
   }
-  /*
-  useEffect(() => {
-    console.log("Outside history", history)
-    console.log("Mode", mode)
-  }, [history, mode])
-  */
   return { mode, transition, back };
 };
