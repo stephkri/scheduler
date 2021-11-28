@@ -27,3 +27,7 @@ In another terminal, go into this repository and run `npm start`. The applicatio
 - React 16.9.x or higher
 - react-dom 16.9.x or higher
 - react-scripts 3.0
+
+## Screenshots
+
+!["Initial appearance of the app"](https://github.com/stephkri/scheduler/blob/master/screenshots/01init.png)
