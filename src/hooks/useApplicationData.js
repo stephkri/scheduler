@@ -48,7 +48,7 @@ export default function useApplicationData() {
   The number of spots remaining in each day is also updated here, so that the number will be reflected
   without the user having to refresh the page.
   */
-  const bookInterview = function(id, interview) {
+  const bookInterview = function(id, interview, edit = false) {
     const dayId = getDayIndexForAppointment(state.days, id);
     const appointment = {
       ...state.appointments[id],
