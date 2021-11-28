@@ -65,6 +65,7 @@ export default function Application() {
             />);
         })}
         <Appointment key="last" time="5pm" />
+        {/* this appointment is just a placeholder so the schedule will have a fixed end time */}
       </section>
     </main>
   );
