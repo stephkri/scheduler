@@ -14,6 +14,10 @@ export default function useApplicationData() {
   // to that particular day.
   const setDay = day => setState({ ...state, day });
 
+  /*
+  All the initial axios requests are wrapped in a useEffect function with an empty dependency array,
+  so that everything won't continuously re-render.
+  */
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),
