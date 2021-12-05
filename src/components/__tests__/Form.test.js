@@ -49,7 +49,7 @@ describe("Form", () => {
   it("submits the name entered by the user", () => {
     const onSave = jest.fn();
     const { getByText, getByPlaceholderText } = render(
-      <Form interviewers={interviewers} onSave={onSave} />
+      <Form interviewers={interviewers} onSave={onSave} edit={false} />
     );
   
     const input = getByPlaceholderText("Enter Student Name");
@@ -58,6 +58,6 @@ describe("Form", () => {
     fireEvent.click(getByText("Save"));
   
     expect(onSave).toHaveBeenCalledTimes(1);
-    expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", null);
+    expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", null, false);
   });
 });
