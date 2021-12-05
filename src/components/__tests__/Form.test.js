@@ -1,5 +1,5 @@
 import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import { render, cleanup, fireEvent } from "@testing-library/react";
 import Form from "components/Appointment/Form";
 
 afterEach(cleanup);
@@ -25,7 +25,7 @@ describe("Form", () => {
 
   it("validates that the student name is not blank", () => {
     /* 1. Create the mock onSave function */
-  
+    
     /* 2. Render the Form with interviewers and the onSave mock function passed as an onSave prop, the student prop should be blank or undefined */
   
     /* 3. Click the save button */
