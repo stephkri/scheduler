@@ -55,20 +55,25 @@ const fixtures = {
 
 export default {
   get: jest.fn(url => {
-    if (url === "/api/days") {
-      return Promise.resolve({
-        status: 200,
-        statusText: "OK",
-        data: fixtures.days
-      });
-    }
-
-    if (url === "/api/appointments") {
-      /* Resolve appointments data */
-    }
-
-    if (url === "/api/interviewers") {
-      /* Resolve interviewers data */
+    switch(url) {
+      case "/api/days":
+        return Promise.resolve({
+          status: 200,
+          statusText: "OK",
+          data: fixtures.days
+        });
+      case "/api/appointments":
+        return Promise.resolve({
+          status: 200,
+          statusText: "OK",
+          data: fixtures.appointments
+        });
+      case "/api/interviewers":
+        return Promise.resolve({
+          status: 200,
+          statusText: "OK",
+          data: fixtures.interviewers
+        });
     }
   })
 };
