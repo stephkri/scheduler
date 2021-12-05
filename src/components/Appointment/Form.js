@@ -14,7 +14,16 @@ export default function Form(props) {
   const cancel = function() {
     reset();
     props.onCancel();
-  }
+  };
+
+  function validate() {
+    if (name === "") {
+      setError("Student name cannot be blank");
+      return;
+    }
+  
+    props.onSave(name, interviewer, edit);
+  };
 
   return (<main className="appointment__card appointment__card--create">
     <section className="appointment__card-left">
