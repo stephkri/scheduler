@@ -55,12 +55,13 @@ const fixtures = {
 
 export default {
   get: jest.fn(url => {
+    
     const values = {
       "/api/days": "days",
       "/api/appointments": "appointments",
-      "/api/interviews": "interviews",
+      "/api/interviewers": "interviewers",
       default: "unknown"
-    }
+    };
     return Promise.resolve({
       status: 200,
       statusText: "OK",
