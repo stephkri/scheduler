@@ -54,5 +54,9 @@ describe("Application", () => {
     console.log(prettyDOM(cohenAppt));
     expect(getByText(cohenAppt, "Deleting...")).toBeInTheDocument();
     await waitForElement(() => getByAltText(cohenAppt, "Add"));
+    expect(queryByText(container, "Archie Cohen")).not.toBeTruthy();
+    const day = getAllByTestId(container, "day").find(day =>
+      queryByText(day, "Monday")
+    );
   });
 });
