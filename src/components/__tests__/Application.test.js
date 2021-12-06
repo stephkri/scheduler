@@ -9,7 +9,8 @@ import {
   getByText,
   getAllByTestId,
   getByAltText,
-  getByPlaceholderText } from "@testing-library/react";
+  getByPlaceholderText,
+  queryByText } from "@testing-library/react";
 
 import Application from "components/Application";
 
@@ -36,5 +37,7 @@ describe("Application", () => {
     debug(appointment);
     expect(getByText(appointment, "Saving...")).toBeInTheDocument();
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
+    const liArray = getAllByTestId(container, "day");
+    expect(liArray.find(day =>queryByText(day, "Monday"))).toBeTruthy();
   });
 });
