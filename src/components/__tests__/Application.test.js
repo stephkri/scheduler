@@ -38,6 +38,12 @@ describe("Application", () => {
     expect(getByText(appointment, "Saving...")).toBeInTheDocument();
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
     const liArray = getAllByTestId(container, "day");
-    expect(liArray.find(day =>queryByText(day, "Monday"))).toBeTruthy();
+    expect(liArray.find(day => queryByText(day, "Monday"))).toBeTruthy();
+    const day = getAllByTestId(container, "day").find(day =>
+      queryByText(day, "Monday")
+    );
+    
+    console.log(prettyDOM(day));
+    expect(queryByText(day, "no spots remaining")).toBeTruthy();
   });
 });
