@@ -63,7 +63,7 @@ export default function Appointment(props) {
   in state. The conditional statements are all made with the && operator, such that (for example)
   a Confirm component will render only when the visual mode is set to CONFIRM.
   */
-  return (<article className="appointment">
+  return (<article className="appointment" data-testid="appointment">
     <Header time={props.time} />
     {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
     {mode === SHOW && props.interview && (
