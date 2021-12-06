@@ -36,5 +36,6 @@ describe("Application", () => {
     });
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
     fireEvent.click(getByText(appointment, "Save"));
+    console.log(prettyDOM(appointment));
   });
 });
