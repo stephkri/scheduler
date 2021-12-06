@@ -53,5 +53,6 @@ describe("Application", () => {
     fireEvent.click(getByText(cohenAppt, "Confirm"));
     console.log(prettyDOM(cohenAppt));
     expect(getByText(cohenAppt, "Deleting...")).toBeInTheDocument();
+    await waitForElement(() => getByAltText(cohenAppt, "Add"));
   });
 });
