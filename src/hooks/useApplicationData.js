@@ -63,13 +63,17 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
+    const newDays = state.days.map(day => {
+      if (day.name === state.day && !edit) {
+        return { ...day, spots: day.spots - 1 };
+      } else {
+        return day;
+      }
+    })
     return axios.put(`/api/appointments/${id}`, appointment)
     .then(() => {
       setState(prev => {
-        if (!edit) {
-          prev.days[dayId].spots -= 1;
-        }
-        return { ...prev, appointments };
+        return { ...prev, appointments, days: newDays };
       });
     });
   };
@@ -81,7 +85,6 @@ export default function useApplicationData() {
   increased by 1 instead of decreased and the interview is set to null.
   */
   const cancelInterview = function(id) {
-    const dayId = getDayIndexForAppointment(state.days, id);
     const appointment = {
       ...state.appointments[id],
       interview: null

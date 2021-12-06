@@ -25,7 +25,7 @@ describe("Application", () => {
     expect(getByText("Leopold Silvers")).toBeInTheDocument();
   });
   it("loads data, books an interview and reduces the spots remaining for the first day by 1", async () => {
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
     const appointments = getAllByTestId(container, "appointment");
     const appointment = appointments[0];
@@ -43,12 +43,11 @@ describe("Application", () => {
       queryByText(day, "Monday")
     );
     expect(queryByText(day, "no spots remaining")).toBeTruthy();
-    debug(container);
   });
 });
 describe("Cancel test", () => {
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
-    const { container, debug } = render(<Application />);
+    const { container } = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
     const appointments = getAllByTestId(container, "appointment");
     const cohenAppt = appointments.find(appt => queryByText(appt, "Archie Cohen"));
@@ -62,6 +61,5 @@ describe("Cancel test", () => {
     await waitForElement(() => getByAltText(cohenAppt, "Add"));
     expect(queryByText(container, "Archie Cohen")).not.toBeTruthy();
     expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
-    debug(container);
   });
 });
