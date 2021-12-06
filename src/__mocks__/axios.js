@@ -67,5 +67,8 @@ export default {
       statusText: "OK",
       data: fixtures[values[url] || values.default]
     });
+  }),
+  put: jest.fn(url => {
+    
   })
 };
