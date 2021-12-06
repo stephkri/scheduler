@@ -90,11 +90,17 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
+    const newDays = state.days.map(day => {
+      if (day.name === state.day) {
+        return { ...day, spots: day.spots + 1 };
+      } else {
+        return day;
+      }
+    })
     return axios.delete(`/api/appointments/${id}`)
     .then(() => {
       setState(prev => {
-        prev.days[dayId].spots += 1;
-        return { ...prev, appointments };
+        return { ...prev, days: newDays, appointments };
       });
     });
   };
