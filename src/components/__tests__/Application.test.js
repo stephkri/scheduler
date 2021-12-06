@@ -7,7 +7,9 @@ import {
   fireEvent,
   prettyDOM,
   getByText,
-  getAllByTestId } from "@testing-library/react";
+  getAllByTestId,
+  getByAltText,
+  getByPlaceholderText } from "@testing-library/react";
 
 import Application from "components/Application";
 
@@ -24,5 +26,15 @@ describe("Application", () => {
     const { container } = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
     console.log(prettyDOM(container));
+    const appointments = getAllByTestId(container, "appointment");
+    console.log(prettyDOM(appointments));
+    const appointment = appointments[0];
+    console.log(prettyDOM(appointment));
+    fireEvent.click(getByAltText(appointment, "Add"));
+    fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
+      target: { value: "Lydia Miller-Jones" }
+    });
+    fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
+    fireEvent.click(getByText(appointment, "Save"));
   });
 });
