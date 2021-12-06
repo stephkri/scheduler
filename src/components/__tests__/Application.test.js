@@ -34,7 +34,6 @@ describe("Application", () => {
     });
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
     fireEvent.click(getByText(appointment, "Save"));
-    debug(appointment);
     expect(getByText(appointment, "Saving...")).toBeInTheDocument();
     await waitForElement(() => getByText(appointment, "Lydia Miller-Jones"));
     const liArray = getAllByTestId(container, "day");
@@ -42,8 +41,6 @@ describe("Application", () => {
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
-    
-    console.log(prettyDOM(day));
     expect(queryByText(day, "no spots remaining")).toBeTruthy();
   });
 });
