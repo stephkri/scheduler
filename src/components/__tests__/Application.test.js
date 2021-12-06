@@ -49,8 +49,8 @@ describe("Application", () => {
     const appointments = getAllByTestId(container, "appointment");
     const cohenAppt = appointments.find(appt => queryByText(appt, "Archie Cohen"));
     fireEvent.click(getByAltText(cohenAppt, "Delete"));
-    console.log(prettyDOM(cohenAppt));
     expect(getByText(cohenAppt, "Are you sure you want to cancel this appointment?")).toBeInTheDocument();
-    
+    fireEvent.click(getByText(cohenAppt, "Confirm"));
+    console.log(prettyDOM(cohenAppt));
   });
 });
