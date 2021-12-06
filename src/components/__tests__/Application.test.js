@@ -1,6 +1,6 @@
 import React from "react";
 
-import { render, cleanup, waitForElement, fireEvent } from "@testing-library/react";
+import { render, cleanup, waitForElement, fireEvent, prettyDOM } from "@testing-library/react";
 
 import Application from "components/Application";
 
