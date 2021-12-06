@@ -52,5 +52,6 @@ describe("Application", () => {
     expect(getByText(cohenAppt, "Are you sure you want to cancel this appointment?")).toBeInTheDocument();
     fireEvent.click(getByText(cohenAppt, "Confirm"));
     console.log(prettyDOM(cohenAppt));
+    expect(getByText(cohenAppt, "Deleting...")).toBeInTheDocument();
   });
 });
