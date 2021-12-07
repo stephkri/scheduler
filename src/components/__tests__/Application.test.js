@@ -98,6 +98,7 @@ describe("Cancel test", () => {
     fireEvent.click(getByText(appointment, "Save"));
     await waitForElement(() => getByTestId(appointment, "error"));
     console.log(prettyDOM(appointment));
+    expect(queryByText(appointment, "Could not save the appointment.")).toBeTruthy();
   });
   it("shows the delete error when failing to delete an existing appointment", () => {
     axios.delete.mockRejectedValueOnce();
