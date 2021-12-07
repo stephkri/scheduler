@@ -85,6 +85,7 @@ describe("Cancel test", () => {
     expect(queryByText(day, "1 spot remaining")).toBeTruthy();
   });
   it("shows the save error when failing to save an appointment", async () => {
+    axios.put.mockRejectedValueOnce();
     const { container } = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
     const appointments = getAllByTestId(container, "appointment");
@@ -95,9 +96,8 @@ describe("Cancel test", () => {
     });
     fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
     fireEvent.click(getByText(appointment, "Save"));
-    axios.put.mockRejectedValueOnce();
-    console.log(prettyDOM(appointment));
     await waitForElement(() => getByTestId(appointment, "error"));
+    console.log(prettyDOM(appointment));
   });
   it("shows the delete error when failing to delete an existing appointment", () => {
     axios.delete.mockRejectedValueOnce();
