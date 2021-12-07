@@ -79,5 +79,7 @@ describe("Cancel test", () => {
     fireEvent.click(getByAltText(editAppt, "Sylvia Palmer"));
     fireEvent.click(getByText(editAppt, "Save"));
     expect(getByText(editAppt, "Saving...")).toBeInTheDocument();
+    await waitForElement(() => getByText(editAppt, "Squidney Brickelfritz"));
+    expect(queryByText(day, "1 spot remaining")).toBeTruthy();
   });
 });
