@@ -8,6 +8,7 @@ import {
   fireEvent,
   prettyDOM,
   getByText,
+  getByTestId,
   getAllByTestId,
   getByAltText,
   getByPlaceholderText,
@@ -71,5 +72,6 @@ describe("Cancel test", () => {
       queryByText(day, "Monday")
     );
     fireEvent.click(getByAltText(cohenAppt, "Edit"));
+    await waitForElement(() => getByTestId(cohenAppt, "form"));
   });
 });
