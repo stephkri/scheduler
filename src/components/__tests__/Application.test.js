@@ -113,5 +113,6 @@ describe("Cancel test", () => {
     await waitForElement(() => getByTestId(appointment, "error"));
     expect(queryByText(appointment, "Could not cancel the appointment.")).toBeTruthy();
     fireEvent.click(getByAltText(appointment, "Close"));
+    expect(queryByText(appointment, "Archie Cohen")).toBeTruthy();
   })
 });
