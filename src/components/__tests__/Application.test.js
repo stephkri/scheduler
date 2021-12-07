@@ -84,8 +84,19 @@ describe("Cancel test", () => {
     await waitForElement(() => getByText(editAppt, "Squidney Brickelfritz"));
     expect(queryByText(day, "1 spot remaining")).toBeTruthy();
   });
-  it("shows the save error when failing to save an appointment", () => {
+  it("shows the save error when failing to save an appointment", async () => {
+    const { container } = render(<Application />);
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+    const appointments = getAllByTestId(container, "appointment");
+    const appointment = appointments[0];
+    fireEvent.click(getByAltText(appointment, "Add"));
+    fireEvent.change(getByPlaceholderText(appointment, /enter student name/i), {
+      target: { value: "Lydia Miller-Jones" }
+    });
+    fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
+    fireEvent.click(getByText(appointment, "Save"));
     axios.put.mockRejectedValueOnce();
+    console.log(prettyDOM(appointment));
   });
   it("shows the delete error when failing to delete an existing appointment", () => {
     axios.delete.mockRejectedValueOnce();
