@@ -99,7 +99,7 @@ describe("Cancel test", () => {
     await waitForElement(() => getByTestId(appointment, "error"));
     expect(queryByText(appointment, "Could not save the appointment.")).toBeTruthy();
     fireEvent.click(getByAltText(appointment, "Close"));
-    expect(getByTestId(appointment, "form")).toBeInTheDocument();
+    expect(getByAltText(appointment, "Add")).toBeInTheDocument();
   });
   it("shows the delete error when failing to delete an existing appointment", async () => {
     axios.delete.mockRejectedValueOnce();
