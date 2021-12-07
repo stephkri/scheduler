@@ -62,7 +62,13 @@ describe("Cancel test", () => {
     expect(queryByText(container, "Archie Cohen")).not.toBeTruthy();
     expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
   });
-  it("loads data, edits an interview and keeps the spots remaining for Monday the same", () => {
-
+  it("loads data, edits an interview and keeps the spots remaining for Monday the same", async () => {
+    const { container } = render(<Application />);
+    await waitForElement(() => getByText(container, "Archie Cohen"));
+    const appointments = getAllByTestId(container, "appointment");
+    const cohenAppt = appointments.find(appt => queryByText(appt, "Archie Cohen"));
+    const day = getAllByTestId(container, "day").find(day =>
+      queryByText(day, "Monday")
+    );
   });
 });
