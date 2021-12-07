@@ -105,12 +105,10 @@ describe("Cancel test", () => {
     await waitForElement(() => getByText(container, "Archie Cohen"));
     const appointments = getAllByTestId(container, "appointment");
     const cohenAppt = appointments.find(appt => queryByText(appt, "Archie Cohen"));
-    const day = getAllByTestId(container, "day").find(day =>
-      queryByText(day, "Monday")
-    );
     fireEvent.click(getByAltText(cohenAppt, "Delete"));
     expect(getByText(cohenAppt, "Are you sure you want to cancel this appointment?")).toBeInTheDocument();
     fireEvent.click(getByText(cohenAppt, "Confirm"));
     expect(getByText(cohenAppt, "Deleting...")).toBeInTheDocument();
+    await waitForElement(() => getByTestId(cohenAppt, "error"));
   })
 });
