@@ -67,15 +67,17 @@ describe("Cancel test", () => {
     const { container } = render(<Application />);
     await waitForElement(() => getByText(container, "Archie Cohen"));
     const appointments = getAllByTestId(container, "appointment");
-    const cohenAppt = appointments.find(appt => queryByText(appt, "Archie Cohen"));
+    const editAppt = appointments.find(appt => queryByText(appt, "Archie Cohen"));
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
-    fireEvent.click(getByAltText(cohenAppt, "Edit"));
-    await waitForElement(() => getByTestId(cohenAppt, "form"));
-    fireEvent.change(getByPlaceholderText(cohenAppt, /enter student name/i), {
+    fireEvent.click(getByAltText(editAppt, "Edit"));
+    await waitForElement(() => getByTestId(editAppt, "form"));
+    fireEvent.change(getByPlaceholderText(editAppt, /enter student name/i), {
       target: { value: "Squidney Brickelfritz" }
     });
-    fireEvent.click(getByAltText(cohenAppt, "Sylvia Palmer"));
+    fireEvent.click(getByAltText(editAppt, "Sylvia Palmer"));
+    fireEvent.click(getByText(editAppt, "Save"));
+    expect(getByText(editAppt, "Saving...")).toBeInTheDocument();
   });
 });
