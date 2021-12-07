@@ -73,5 +73,8 @@ describe("Cancel test", () => {
     );
     fireEvent.click(getByAltText(cohenAppt, "Edit"));
     await waitForElement(() => getByTestId(cohenAppt, "form"));
+    fireEvent.change(getByPlaceholderText(cohenAppt, /enter student name/i), {
+      target: { value: "Squidney Brickelfritz" }
+    });
   });
 });
