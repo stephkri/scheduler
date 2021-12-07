@@ -76,5 +76,6 @@ describe("Cancel test", () => {
     fireEvent.change(getByPlaceholderText(cohenAppt, /enter student name/i), {
       target: { value: "Squidney Brickelfritz" }
     });
+    fireEvent.click(getByAltText(appointment, "Sylvia Palmer"));
   });
 });
