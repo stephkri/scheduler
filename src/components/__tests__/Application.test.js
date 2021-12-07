@@ -84,4 +84,7 @@ describe("Cancel test", () => {
     await waitForElement(() => getByText(editAppt, "Squidney Brickelfritz"));
     expect(queryByText(day, "1 spot remaining")).toBeTruthy();
   });
+  it("shows the save error when failing to save an appointment", () => {
+    axios.put.mockRejectedValueOnce();
+  });
 });
