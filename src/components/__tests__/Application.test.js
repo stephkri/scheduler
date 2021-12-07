@@ -62,4 +62,7 @@ describe("Cancel test", () => {
     expect(queryByText(container, "Archie Cohen")).not.toBeTruthy();
     expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
   });
+  it("loads data, edits an interview and keeps the spots remaining for Monday the same", () => {
+
+  });
 });
