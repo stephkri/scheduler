@@ -97,6 +97,7 @@ describe("Cancel test", () => {
     fireEvent.click(getByText(appointment, "Save"));
     axios.put.mockRejectedValueOnce();
     console.log(prettyDOM(appointment));
+    await waitForElement(() => getByTestId(appointment, "error"));
   });
   it("shows the delete error when failing to delete an existing appointment", () => {
     axios.delete.mockRejectedValueOnce();
