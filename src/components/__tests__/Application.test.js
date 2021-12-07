@@ -70,5 +70,6 @@ describe("Cancel test", () => {
     const day = getAllByTestId(container, "day").find(day =>
       queryByText(day, "Monday")
     );
+    fireEvent.click(getByAltText(cohenAppt, "Edit"));
   });
 });

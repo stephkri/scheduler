@@ -27,7 +27,7 @@ export default function Form(props) {
     props.onSave(name, interviewer, edit);
   };
 
-  return (<main className="appointment__card appointment__card--create">
+  return (<main className="appointment__card appointment__card--create" data-testid="form">
     <section className="appointment__card-left">
       <form autoComplete="off" onSubmit={event => event.preventDefault()}>
         <input
