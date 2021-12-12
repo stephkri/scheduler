@@ -83,24 +83,23 @@ export default function useApplicationData() {
   increased by 1 instead of decreased and the interview is set to null.
   */
   const cancelInterview = function(id) {
-    const appointment = {
-      ...prev.appointments[id],
-      interview: null
-    };
-    const appointments = {
-      ...prev.appointments,
-      [id]: appointment
-    };
-    const newDays = prev.days.map(day => {
-      if (day.name === prev.day) {
-        return { ...day, spots: day.spots + 1 };
-      } else {
-        return day;
-      }
-    })
     return axios.delete(`/api/appointments/${id}`)
     .then(() => {
       setState(prev => {
+        const appointments = {
+          ...prev.appointments,
+          [id]: {
+            ...prev.appointments[id],
+            interview: null
+          }
+        };
+        const newDays = prev.days.map(day => {
+          if (day.name === prev.day) {
+            return { ...day, spots: day.spots + 1 };
+          } else {
+            return day;
+          }
+        })
         return { ...prev, days: newDays, appointments };
       });
     });
