@@ -30,16 +30,6 @@ export default function useApplicationData() {
     .catch(e => console.log(e));
   }, []);
 
-  // This is a helper function for the other two functions below; it only serves to find the proper
-  // day in which a particular appointment slot is located.
-  const getDayIndexForAppointment = function(days, id) {
-    for (const day of days) {
-      if (day.appointments.indexOf(id) !== -1) {
-        return day.id - 1;
-      }
-    }
-  };
-
   /*
   This function is called whenever a new interview is booked or modified. It works on three levels:
   1. the individual appointment object is made, with the new student and interviewer info,
