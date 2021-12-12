@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default function useApplicationData() {
   // This is the default empty state, before values are fetched from the API.
-  const [state, setState] = useState({
+  const [prev, setState] = useState({
     day: "Monday",
     days: [],
     appointments: {},
@@ -12,7 +12,7 @@ export default function useApplicationData() {
 
   // setDay is called whenever a day is clicked in the day list, so the information switches
   // to that particular day.
-  const setDay = day => setState({ ...state, day });
+  const setDay = day => setState({ ...prev, day });
 
   /*
   All the initial axios requests are wrapped in a useEffect function with an empty dependency array,
@@ -54,25 +54,23 @@ export default function useApplicationData() {
   not when it is simply an edit.
   */
   const bookInterview = function(id, interview, edit = false) {
-    const dayId = getDayIndexForAppointment(state.days, id);
-    const appointment = {
-      ...state.appointments[id],
-      interview: { ...interview }
-    };
-    const appointments = {
-      ...state.appointments,
-      [id]: appointment
-    };
-    const newDays = state.days.map(day => {
-      if (day.name === state.day && !edit) {
-        return { ...day, spots: day.spots - 1 };
-      } else {
-        return day;
-      }
-    })
-    return axios.put(`/api/appointments/${id}`, appointment)
+    return axios.put(`/api/appointments/${id}`, {interview})
     .then(() => {
       setState(prev => {
+        const appointments = {
+          ...prev.appointments,
+          [id]: {
+            ...prev.appointments[id],
+            interview
+          }
+        };
+        const newDays = prev.days.map(day => {
+          if (day.name === prev.day && !edit) {
+            return { ...day, spots: day.spots - 1 };
+          } else {
+            return day;
+          }
+        })
         return { ...prev, appointments, days: newDays };
       });
     });
@@ -86,15 +84,15 @@ export default function useApplicationData() {
   */
   const cancelInterview = function(id) {
     const appointment = {
-      ...state.appointments[id],
+      ...prev.appointments[id],
       interview: null
     };
     const appointments = {
-      ...state.appointments,
+      ...prev.appointments,
       [id]: appointment
     };
-    const newDays = state.days.map(day => {
-      if (day.name === state.day) {
+    const newDays = prev.days.map(day => {
+      if (day.name === prev.day) {
         return { ...day, spots: day.spots + 1 };
       } else {
         return day;
@@ -108,5 +106,5 @@ export default function useApplicationData() {
     });
   };
 
-  return { state, setDay, bookInterview, cancelInterview };
+  return { state: prev, setDay, bookInterview, cancelInterview };
 };
