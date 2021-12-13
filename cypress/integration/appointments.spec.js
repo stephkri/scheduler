@@ -13,5 +13,7 @@ describe("Appointment", () => {
   });
   it("should edit an interview", () => {
     cy.get("[alt=Edit]").click({force: true});
+    cy.get("[alt='Tori Malcolm'").click();
+    cy.contains("Save").click();
   });
 });
